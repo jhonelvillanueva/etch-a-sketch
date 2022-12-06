@@ -12,17 +12,21 @@ let isActive = false;
 
 const sketch = (e) => {
   e.target.style.backgroundColor = color;
+
+  singleDiv.forEach((div) => {
+    div.addEventListener('pointermove', () => {
+      if (isActive) {
+        div.style.backgroundColor = color;
+      }
+    });
+  });
 };
 
 boardContainer.addEventListener('pointerdown', (e) => {
-  isActive = !isActive;
   sketch(e);
+  isActive = true;
+});
 
-  if (isActive) {
-    singleDiv.forEach((div) => {
-      div.addEventListener('pointermove', () => {
-        div.style.backgroundColor = color;
-      });
-    });
-  }
+boardContainer.addEventListener('pointerup', () => {
+  isActive = false;
 });
