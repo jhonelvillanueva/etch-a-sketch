@@ -53,7 +53,7 @@ h1 {
 }
 
 .board-container {
-  border: 3px solid #fef9f3;
+  border: 5px solid #ffb521;
   min-width: 600px;
   min-height: 600px;
   display: grid;
@@ -61,9 +61,10 @@ h1 {
 }
 
 .single-div {
-  border: 1px solid gold;
+  background-color: white;
+  border: 1px solid black;
 }
 
-.single-div:hover {
-  background-color: aliceblue;
+.active {
+  background-color: black;
 }
