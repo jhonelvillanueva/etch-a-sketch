@@ -1,14 +1,14 @@
 const boardContainer = document.querySelector('.board-container');
+const singleDiv = document.querySelectorAll('.single-div');
+let numOfGrid = 16;
+let color = '#000000';
+let isActive = false;
 
-for (i = 0; i < 256; i++) {
+for (i = 0; i < numOfGrid * numOfGrid; i++) {
   const boardDiv = document.createElement('div');
   boardDiv.classList.add('single-div');
   boardContainer.appendChild(boardDiv);
 }
-
-const singleDiv = document.querySelectorAll('.single-div');
-let color = '#000000';
-let isActive = false;
 
 const sketch = (e) => {
   e.target.style.backgroundColor = color;
