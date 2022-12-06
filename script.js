@@ -1,11 +1,8 @@
 const boardContainer = document.querySelector('.board-container');
-const singleDiv = document.querySelectorAll('.single-div');
 const gridInput = document.querySelector('#pixel');
 const gridButton = document.querySelector('#btn-pixel');
 
-let numOfGrid = 16;
-let color = '#000000';
-let isActive = false;
+let numOfGrid = 32;
 
 for (i = 0; i < numOfGrid * numOfGrid; i++) {
   const boardDiv = document.createElement('div');
@@ -17,6 +14,10 @@ boardContainer.setAttribute(
   'style',
   `grid-template-columns: repeat(${numOfGrid}, 1fr);`
 );
+
+const singleDiv = document.querySelectorAll('.single-div');
+let color = '#000000';
+let isActive = false;
 
 const sketch = (e) => {
   e.target.style.backgroundColor = color;
