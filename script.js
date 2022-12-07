@@ -1,8 +1,12 @@
+// * Board Set-up
+
 const boardContainer = document.querySelector('.board-container');
 const gridInput = document.querySelector('#pixel');
 const gridButton = document.querySelector('#btn-pixel');
 
-let numOfGrid = 32;
+let numOfGrid = 16;
+let color = '#000000';
+let isActive = false;
 
 for (i = 0; i < numOfGrid * numOfGrid; i++) {
   const boardDiv = document.createElement('div');
@@ -15,11 +19,16 @@ boardContainer.setAttribute(
   `grid-template-columns: repeat(${numOfGrid}, 1fr);`
 );
 
-const singleDiv = document.querySelectorAll('.single-div');
-let color = '#000000';
-let isActive = false;
+gridButton.addEventListener('click', () => {
+  numOfGrid = parseInt(gridInput.value);
+  console.log(parseInt(gridInput.value));
+});
+
+// * Sketching
 
 const sketch = (e) => {
+  const singleDiv = document.querySelectorAll('.single-div');
+
   e.target.style.backgroundColor = color;
 
   singleDiv.forEach((div) => {
@@ -38,9 +47,4 @@ boardContainer.addEventListener('pointerdown', (e) => {
 
 boardContainer.addEventListener('pointerup', () => {
   isActive = false;
-});
-
-gridButton.addEventListener('click', () => {
-  numOfGrid = parseInt(gridInput.value);
-  console.log(typeof parseInt(gridInput.value));
 });
