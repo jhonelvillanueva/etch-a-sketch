@@ -8,11 +8,13 @@ let numOfGrid = 16;
 let color = '#000000';
 let isActive = false;
 
-for (i = 0; i < numOfGrid * numOfGrid; i++) {
-  const boardDiv = document.createElement('div');
-  boardDiv.classList.add('single-div');
-  boardContainer.appendChild(boardDiv);
-}
+const createGrid = (numOfGrid) => {
+  for (i = 0; i < numOfGrid * numOfGrid; i++) {
+    const boardDiv = document.createElement('div');
+    boardDiv.classList.add('single-div');
+    boardContainer.appendChild(boardDiv);
+  }
+};
 
 boardContainer.setAttribute(
   'style',
