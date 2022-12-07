@@ -14,16 +14,21 @@ const createGrid = (numOfGrid) => {
     boardDiv.classList.add('single-div');
     boardContainer.appendChild(boardDiv);
   }
+
+  boardContainer.setAttribute(
+    'style',
+    `grid-template-columns: repeat(${numOfGrid}, 1fr);`
+  );
 };
 
-boardContainer.setAttribute(
-  'style',
-  `grid-template-columns: repeat(${numOfGrid}, 1fr);`
-);
+createGrid(numOfGrid);
 
 gridButton.addEventListener('click', () => {
-  numOfGrid = parseInt(gridInput.value);
-  console.log(parseInt(gridInput.value));
+  const singleDiv = document.querySelectorAll('.single-div');
+  singleDiv.forEach((div) => {
+    div.remove();
+  });
+  createGrid(parseInt(gridInput.value));
 });
 
 // * Sketching
