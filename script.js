@@ -6,6 +6,7 @@ const gridDisplay = document.querySelector('.grid-display');
 const eraser = document.querySelector('.eraser');
 const rainbow = document.querySelector('.rainbow');
 const grid = document.querySelector('.grid');
+const clear = document.querySelector('.clear');
 
 let numOfGrid = 16;
 let color = '#000000';
@@ -106,6 +107,14 @@ grid.addEventListener('click', () => {
   } else {
     grid.setAttribute('style', 'border: 5px solid #ffb521');
   }
+});
+
+clear.addEventListener('click', () => {
+  const singleDiv = document.querySelectorAll('.single-div');
+  singleDiv.forEach((div) => {
+    div.remove();
+  });
+  createGrid(parseInt(gridSlider.value));
 });
 
 // * Sketching
