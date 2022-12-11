@@ -4,11 +4,13 @@ const boardContainer = document.querySelector('.board-container');
 const gridSlider = document.querySelector('#grid-slider');
 const gridDisplay = document.querySelector('.grid-display');
 const eraser = document.querySelector('.eraser');
+const rainbow = document.querySelector('.rainbow');
 
 let numOfGrid = 16;
 let color = '#000000';
 let isActive = false;
 let toggleEraser = false;
+let toggleRainbow = false;
 
 const createGrid = (numOfGrid) => {
   for (i = 0; i < numOfGrid * numOfGrid; i++) {
@@ -41,25 +43,62 @@ eraser.addEventListener('click', () => {
   toggleEraser = !toggleEraser;
 
   if (!toggleEraser) {
-    color = '#000000';
     eraser.setAttribute('style', 'border: none');
   } else {
-    color = '#ffffff';
     eraser.setAttribute('style', 'border: 5px solid #ffb521');
+  }
+});
+
+const randomColor = () => {
+  let randomColor = Math.floor(Math.random() * 10 + 1);
+
+  switch (randomColor) {
+    case 1:
+      return '#ffadad';
+    case 2:
+      return '#ffd6a5';
+    case 3:
+      return '#fdffb6';
+    case 4:
+      return '#caffbf';
+    case 5:
+      return '#9bf6ff';
+    case 6:
+      return '#a0c4ff';
+    case 7:
+      return '#bdb2ff';
+    case 8:
+      return '#fcc6ff';
+    case 9:
+      return '#feb144';
+    default:
+      return '#9ec1cf';
+  }
+};
+
+rainbow.addEventListener('click', () => {
+  toggleRainbow = !toggleRainbow;
+
+  if (!toggleRainbow) {
+    rainbow.setAttribute('style', 'border: none');
+  } else {
+    rainbow.setAttribute('style', 'border: 5px solid #ffb521');
   }
 });
 
 // * Sketching
 
-const sketch = (e) => {
+const sketch = () => {
   const singleDiv = document.querySelectorAll('.single-div');
 
-  e.target.style.backgroundColor = color;
-
   singleDiv.forEach((div) => {
-    div.addEventListener('pointerover', (e) => {
-      if (isActive) {
+    div.addEventListener('pointerover', () => {
+      if (isActive && !toggleRainbow && !toggleEraser) {
         div.style.backgroundColor = color;
+      } else if (isActive && toggleRainbow && !toggleEraser) {
+        div.style.backgroundColor = randomColor();
+      } else if (isActive && toggleEraser) {
+        div.style.backgroundColor = '#ffffff';
       }
     });
   });
@@ -68,6 +107,15 @@ const sketch = (e) => {
 boardContainer.addEventListener('pointerdown', (e) => {
   e.preventDefault();
   isActive = true;
+
+  if (toggleEraser) {
+    e.target.style.backgroundColor = '#ffffff';
+  } else if (!toggleRainbow) {
+    e.target.style.backgroundColor = color;
+  } else {
+    e.target.style.backgroundColor = randomColor();
+  }
+
   sketch(e);
 });
 

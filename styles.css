@@ -78,7 +78,8 @@ h1 {
   padding-bottom: 8px;
 }
 
-.eraser {
+.eraser,
+.rainbow {
   font-family: 'Amatic SC', cursive;
   font-size: 32px;
   background-color: #fef9f3;
