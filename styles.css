@@ -65,6 +65,10 @@ h1 {
   transform: translate(-564px, -50%);
 }
 
+#color-picker {
+  width: 100%;
+}
+
 #grid-slider {
   width: 100%;
   background-color: #fef9f3;
