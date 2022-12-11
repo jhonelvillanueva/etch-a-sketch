@@ -7,9 +7,9 @@ const eraser = document.querySelector('.eraser');
 const rainbow = document.querySelector('.rainbow');
 const grid = document.querySelector('.grid');
 const clear = document.querySelector('.clear');
+const colorPicker = document.querySelector('#color-picker');
 
 let numOfGrid = 16;
-let color = '#000000';
 let isActive = false;
 let toggleEraser = false;
 let toggleRainbow = false;
@@ -125,7 +125,7 @@ const sketch = () => {
   singleDiv.forEach((div) => {
     div.addEventListener('pointerover', () => {
       if (isActive && !toggleRainbow && !toggleEraser) {
-        div.style.backgroundColor = color;
+        div.style.backgroundColor = colorPicker.value;
       } else if (isActive && toggleRainbow && !toggleEraser) {
         div.style.backgroundColor = randomColor();
       } else if (isActive && toggleEraser) {
@@ -142,7 +142,7 @@ boardContainer.addEventListener('pointerdown', (e) => {
   if (toggleEraser) {
     e.target.style.backgroundColor = '#ffffff';
   } else if (!toggleRainbow) {
-    e.target.style.backgroundColor = color;
+    e.target.style.backgroundColor = colorPicker.value;
   } else {
     e.target.style.backgroundColor = randomColor();
   }
