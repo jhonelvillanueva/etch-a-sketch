@@ -49,7 +49,6 @@ h1 {
 
 .single-div {
   background-color: white;
-  border: 1px solid black;
 }
 
 /* Settings CSS */
@@ -79,7 +78,8 @@ h1 {
 }
 
 .eraser,
-.rainbow {
+.rainbow,
+.grid {
   font-family: 'Amatic SC', cursive;
   font-size: 32px;
   background-color: #fef9f3;

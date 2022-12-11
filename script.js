@@ -5,12 +5,14 @@ const gridSlider = document.querySelector('#grid-slider');
 const gridDisplay = document.querySelector('.grid-display');
 const eraser = document.querySelector('.eraser');
 const rainbow = document.querySelector('.rainbow');
+const grid = document.querySelector('.grid');
 
 let numOfGrid = 16;
 let color = '#000000';
 let isActive = false;
 let toggleEraser = false;
 let toggleRainbow = false;
+let toggleGrid = false;
 
 const createGrid = (numOfGrid) => {
   for (i = 0; i < numOfGrid * numOfGrid; i++) {
@@ -83,6 +85,26 @@ rainbow.addEventListener('click', () => {
     rainbow.setAttribute('style', 'border: none');
   } else {
     rainbow.setAttribute('style', 'border: 5px solid #ffb521');
+  }
+});
+
+grid.addEventListener('click', () => {
+  toggleGrid = !toggleGrid;
+
+  const singleDiv = document.querySelectorAll('.single-div');
+
+  singleDiv.forEach((div) => {
+    if (toggleGrid) {
+      div.style.border = '1px solid black';
+    } else {
+      div.style.border = 'none';
+    }
+  });
+
+  if (!toggleGrid) {
+    grid.setAttribute('style', 'border: none');
+  } else {
+    grid.setAttribute('style', 'border: 5px solid #ffb521');
   }
 });
 
