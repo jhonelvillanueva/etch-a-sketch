@@ -40,18 +40,6 @@ h1 {
   align-items: center;
 }
 
-.settings {
-  min-width: 180px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  justify-content: center;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-564px, -50%);
-}
-
 .board-container {
   border: 5px solid #ffb521;
   min-width: 600px;
@@ -64,6 +52,27 @@ h1 {
   border: 1px solid black;
 }
 
-.active {
-  background-color: black;
+/* Settings CSS */
+
+.settings {
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-564px, -50%);
+}
+
+#grid-slider {
+  width: 100%;
+}
+
+.grid-display {
+  color: #fef9f3;
+  font-size: 24px;
+  text-align: center;
+  padding-bottom: 8px;
 }

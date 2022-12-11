@@ -13,8 +13,10 @@
 <body>
     <div class="app">
         <div class="settings">
-            <input type="number" name="pixel" id="pixel" min="16" max="100">
-            <button id="btn-pixel">Select</button>
+            <div class="slider">
+                <p class="grid-display">16 x 16</p>
+                <input type="range" name="grid-slider" id="grid-slider" min="8" max="128" value="16" step="8">
+            </div>
         </div>
         <div class="container">
             <h1>Etch-a-Sketch</h1>

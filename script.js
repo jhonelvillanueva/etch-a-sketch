@@ -1,8 +1,8 @@
 // * Board Set-up
 
 const boardContainer = document.querySelector('.board-container');
-const gridInput = document.querySelector('#pixel');
-const gridButton = document.querySelector('#btn-pixel');
+const gridSlider = document.querySelector('#grid-slider');
+const gridDisplay = document.querySelector('.grid-display');
 
 let numOfGrid = 16;
 let color = '#000000';
@@ -23,13 +23,17 @@ const createGrid = (numOfGrid) => {
 
 createGrid(numOfGrid);
 
-gridButton.addEventListener('click', () => {
+gridSlider.oninput = () => {
   const singleDiv = document.querySelectorAll('.single-div');
   singleDiv.forEach((div) => {
     div.remove();
   });
-  createGrid(parseInt(gridInput.value));
-});
+  createGrid(parseInt(gridSlider.value));
+
+  gridDisplay.textContent = `${parseInt(gridSlider.value)} x ${parseInt(
+    gridSlider.value
+  )}`;
+};
 
 // * Sketching
 
