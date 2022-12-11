@@ -79,10 +79,16 @@ h1 {
 
 .eraser,
 .rainbow,
-.grid {
+.grid,
+.clear {
+  cursor: pointer;
   font-family: 'Amatic SC', cursive;
   font-size: 32px;
   background-color: #fef9f3;
   height: 50px;
   border-radius: 10px;
+}
+
+.clear:active {
+  border: 5px solid #ffb521;
 }
