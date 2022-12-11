@@ -3,10 +3,12 @@
 const boardContainer = document.querySelector('.board-container');
 const gridSlider = document.querySelector('#grid-slider');
 const gridDisplay = document.querySelector('.grid-display');
+const eraser = document.querySelector('.eraser');
 
 let numOfGrid = 16;
 let color = '#000000';
 let isActive = false;
+let toggleEraser = false;
 
 const createGrid = (numOfGrid) => {
   for (i = 0; i < numOfGrid * numOfGrid; i++) {
@@ -35,6 +37,18 @@ gridSlider.oninput = () => {
   )}`;
 };
 
+eraser.addEventListener('click', () => {
+  toggleEraser = !toggleEraser;
+
+  if (!toggleEraser) {
+    color = '#000000';
+    eraser.setAttribute('style', 'border: none');
+  } else {
+    color = '#ffffff';
+    eraser.setAttribute('style', 'border: 5px solid #ffb521');
+  }
+});
+
 // * Sketching
 
 const sketch = (e) => {
@@ -43,7 +57,7 @@ const sketch = (e) => {
   e.target.style.backgroundColor = color;
 
   singleDiv.forEach((div) => {
-    div.addEventListener('pointermove', () => {
+    div.addEventListener('pointerover', (e) => {
       if (isActive) {
         div.style.backgroundColor = color;
       }
@@ -52,8 +66,9 @@ const sketch = (e) => {
 };
 
 boardContainer.addEventListener('pointerdown', (e) => {
-  sketch(e);
+  e.preventDefault();
   isActive = true;
+  sketch(e);
 });
 
 boardContainer.addEventListener('pointerup', () => {

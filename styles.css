@@ -68,6 +68,7 @@ h1 {
 
 #grid-slider {
   width: 100%;
+  background-color: #fef9f3;
 }
 
 .grid-display {
@@ -75,4 +76,12 @@ h1 {
   font-size: 24px;
   text-align: center;
   padding-bottom: 8px;
+}
+
+.eraser {
+  font-family: 'Amatic SC', cursive;
+  font-size: 32px;
+  background-color: #fef9f3;
+  height: 50px;
+  border-radius: 10px;
 }
