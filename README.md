@@ -1,3 +1,3 @@
 # etch-a-sketch
 
-Game created usign HTML, CSS, Javascript
+Game created usimg HTML, CSS, and vanilla Javascript
