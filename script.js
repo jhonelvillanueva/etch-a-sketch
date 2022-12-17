@@ -31,6 +31,8 @@ const createGrid = (numOfGrid) => {
 createGrid(numOfGrid);
 
 gridSlider.oninput = () => {
+  toggleGrid = false;
+
   const singleDiv = document.querySelectorAll('.single-div');
   singleDiv.forEach((div) => {
     div.remove();
@@ -40,6 +42,12 @@ gridSlider.oninput = () => {
   gridDisplay.textContent = `${parseInt(gridSlider.value)} x ${parseInt(
     gridSlider.value
   )}`;
+
+  if (!toggleGrid) {
+    grid.setAttribute('style', 'border: none');
+  } else {
+    grid.setAttribute('style', 'border: 5px solid #ffb521');
+  }
 };
 
 eraser.addEventListener('click', () => {
